@@ -35,4 +35,3 @@ terraform.rc
 
 # Custom for s3
 s3creds.rc
-backend.hcl
