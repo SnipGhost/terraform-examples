@@ -28,7 +28,8 @@ var.env == "prod" ? "count=1" : "count=0"
 
 {for i, v in var.data_list : i => v}
 
-{for v in var.data_list : v => upper(v) if contains(v, "!")}
+{for v in var.data_list : v => upper(v) if strcontains(v, "!")}
+{for v in var.data_list : v => upper(v) if !strcontains(v, "!")}
 
 flatten([for vm in var.vms : [for iface in vm.interfaces : iface["ip"]]])
 ```

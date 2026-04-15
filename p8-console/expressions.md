@@ -112,7 +112,8 @@ var.env == "prod" ? "count=1" : "count=0"
 [for k, v in var.env_map : "${k} is ${v}"]
 [for x in var.data_list : x if x != "world"]
 {for i, v in var.data_list : i => v}
-{for v in var.data_list : v => upper(v) if contains(v, "!")}
+{for v in var.data_list : v => upper(v) if strcontains(v, "!")}
+{for v in var.data_list : v => upper(v) if !strcontains(v, "!")}
 flatten([for vm in var.vms : [for iface in vm.interfaces : iface["ip"]]])
 [for x in var.data_list : x]
 var.data_list[*]
